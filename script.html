@@ -1,0 +1,29 @@
+
+document.getElementById("accidentForm")
+.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let location = document.getElementById("location").value;
+    let type = document.getElementById("type").value;
+    let severity = document.getElementById("severity").value;
+
+    let priority = "";
+
+    if (severity === "High") {
+        priority = "HIGH PRIORITY";
+    } else if (severity === "Medium") {
+        priority = "MEDIUM PRIORITY";
+    } else {
+        priority = "LOW PRIORITY";
+    }
+
+    document.getElementById("result").innerHTML =
+        "<strong>Accident Report Submitted</strong><br>" +
+        "Location: " + location + "<br>" +
+        "Accident Type: " + type + "<br>" +
+        "Severity: " + severity + "<br>" +
+        "Priority: " + priority + "<br>" +
+        "<strong>Status: Demo report created</strong>";
+
+    document.getElementById("accidentForm").reset();
+});
